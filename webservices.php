@@ -39,6 +39,7 @@ $conn = new mysqli($host, $dbuser, $dbpass, $dbname);
             </div>
             </div>'; 
         }
+        $data = $data.$doctor_data;
     }
     else{
         $data = '<div class="caption">No Doctors found in your area</div>';
@@ -48,9 +49,7 @@ $conn = new mysqli($host, $dbuser, $dbpass, $dbname);
 
 else{
     $data = '<div class="caption">Bad Query</div>';
-}
-
-$data = $data.$doctor_data; 
+} 
 
 echo $data;
 ?>
