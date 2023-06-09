@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-denk-one: "Denk One";
+  --font-dm-sans: "DM Sans";
+  --font-space-grotesk: "Space Grotesk";
+  --font-spectral: Spectral;
+  --font-prompt: Prompt;
+  --font-pt-sans: "PT Sans";
+
+  /* font sizes */
+  --font-size-17xl: 36px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-dimgray: #4c4646;
+}

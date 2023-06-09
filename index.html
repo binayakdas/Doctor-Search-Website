@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=PT Sans:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space Grotesk:wght@700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Denk One:wght@400&display=swap"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="desktop-1">
+      <div class="footer">
+        <img
+          class="image-group-of-doctors-smiling-icon"
+          alt=""
+          src="./public/imagegroupofdoctorssmiling-1@2x.png"
+        />
+
+        <img class="vector-icon" alt="" src="./public/vector.svg" />
+
+        <div class="seek-guidance-from-container">
+          <p class="seek-guidance-from">Seek guidance from our proficient</p>
+          <p class="seek-guidance-from">group of doctors.</p>
+        </div>
+        <img class="vector-icon1" alt="" src="./public/vector.svg" />
+
+        <div class="available-247">Available 24/7</div>
+        <div class="developing-a-long-term-container">
+          <p class="seek-guidance-from">Developing a long-term bond</p>
+          <p class="seek-guidance-from">
+            with a reliable doctor is crucial for ensuring optimal well-being.
+          </p>
+        </div>
+      </div>
+      <div class="main">
+        <img class="img-rec-icon" alt="" src="./public/img-rec@2x.png" />
+
+        <div class="main-rec">
+          <form id = "searchForm">
+            <label for="category" class="form-label">Category:</label>
+            <select name="category" id="doctor_type" class="form-select">
+              <option value="" selected disabled>Select Category</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Orthopedics">Orthopedics</option>
+              <option value="Ophthalmology">Ophthalmology</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="Psychiatry">Psychiatry</option>
+              <option value="General Physician">General Physician</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Obstetrics and Gynecology">Obstetrics and Gynecology</option>
+            </select>
+            
+            <label for="city" class="form-label-2">City:</label>
+            <select name="city" id="doctor_area" class="form-select">
+              <option value="" selected disabled>Select City</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Ahmedabad">Ahmedabad</option>
+              <option value="Lucknow">Lucknow</option>
+              <option value="Kolkata">Kolkata</option>
+              <option value="Patna">Patna</option>
+              <option value="Pune">Pune</option>
+              <option value="New Delhi">New Delhi</option>
+            </select>
+            
+            <button type="submit" class="form-button">
+              <i class="fas fa-search"></i>
+              Find
+            </button>
+            
+          </form>
+          
+          <div id = "searchSection" class="doctors-container"> </div>
+          
+        </div>
+        
+        <div class="navigating-your-path">
+          Navigating your path to better health
+        </div>
+        <b class="access-a-directory"
+          >Access a directory of good high quality doctors in your city.</b
+        >
+      </div>
+      <nav class="header">
+        <img class="signup-rec-icon" alt="" src="./public/signuprec.svg" />
+
+        <button class="sign-up">Sign-up</button>
+        <button class="login-rec"></button>
+        <div class="login">Login</div>
+        <div class="about">About</div>
+        <div class="services">Services</div>
+        <div class="home">Home</div>
+        <div class="docfind">DocFind</div>
+      </nav>
+    </div>
+  </body>
+  
+  <script>
+    $(document).ready(function(){
+    
+      $("#searchForm").submit(function(){
+        event.preventDefault();
+    
+        var doctor_type = $("#doctor_type").val();
+        var doctor_area = $("#doctor_area").val();
+    
+        $.post("webservices.php",{search : doctor_type, area : doctor_area},function(response){
+    
+          $("#searchSection").html(response);
+          
+        });
+    
+      });
+    });
+  </script>
+</html>
